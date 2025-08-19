@@ -9,7 +9,7 @@ export class ConfigManager {
   private configPath: string;
 
   constructor() {
-    this.configDir = join(homedir(), ".anyclaude");
+    this.configDir = join(homedir(), ".claude_route");
     this.configPath = join(this.configDir, "config.json");
   }
 

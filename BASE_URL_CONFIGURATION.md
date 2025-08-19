@@ -34,7 +34,7 @@ export AZURE_OPENAI_ENDPOINT="https://your-resource.openai.azure.com"  # Require
 
 ### Anthropic
 ```bash
-export ANTHROPIC_API_KEY="your-anthropic-key"  # Usually dummy for anyclaude
+export ANTHROPIC_API_KEY="your-anthropic-key"  # Usually dummy for claude_route
 export ANTHROPIC_API_URL="https://api.anthropic.com"  # Default, or custom URL
 ```
 
@@ -44,28 +44,28 @@ export ANTHROPIC_API_URL="https://api.anthropic.com"  # Default, or custom URL
 ```bash
 # Route OpenAI through corporate proxy
 export OPENAI_API_URL="https://proxy.company.com/openai/v1"
-anyclaude start --model openai/gpt-4
+claude_route start --model openai/gpt-4
 ```
 
 ### Custom Google Vertex AI Endpoint
 ```bash
 # Use custom Vertex AI endpoint (like custom-vertex-ai.example.com)
 export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
-anyclaude start --model google/gemini-2.5-pro
+claude_route start --model google/gemini-2.5-pro
 ```
 
 ### Azure OpenAI Regional Endpoint
 ```bash
 # Use specific Azure region
 export AZURE_OPENAI_ENDPOINT="https://mycompany-eastus.openai.azure.com"
-anyclaude start --model azure/gpt-4
+claude_route start --model azure/gpt-4
 ```
 
 ### XAI Custom Endpoint
 ```bash
 # Use custom XAI endpoint
 export XAI_API_URL="https://api.custom-xai.com/v1"
-anyclaude start --model xai/grok-beta
+claude_route start --model xai/grok-beta
 ```
 
 ## PowerShell Examples (Windows)
@@ -74,19 +74,19 @@ anyclaude start --model xai/grok-beta
 # OpenAI with custom base URL
 $env:OPENAI_API_KEY="your-key"
 $env:OPENAI_API_URL="https://api.custom-openai.com/v1"
-$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 bun run src/main.ts --model openai/gpt-4
 
 # Google with Vertex AI proxy
 $env:GOOGLE_API_KEY="your-key"
 $env:GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
-$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 bun run src/main.ts --model google/gemini-2.5-pro
 ```
 
 ## Provider Routing Logic
 
-The anyclaude proxy automatically routes requests based on the model prefix:
+The claude_route proxy automatically routes requests based on the model prefix:
 
 | Model Prefix | Provider | API Key Env | Base URL Env |
 |--------------|----------|-------------|---------------|

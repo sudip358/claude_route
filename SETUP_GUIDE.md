@@ -1,6 +1,6 @@
 # Anyclaude Setup Guide
 
-This guide shows you how to configure anyclaude with custom API URLs for all providers using the new interactive setup system.
+This guide shows you how to configure claude_route with custom API URLs for all providers using the new interactive setup system.
 
 ## Quick Start
 
@@ -9,7 +9,7 @@ This guide shows you how to configure anyclaude with custom API URLs for all pro
 # Run the interactive setup
 bun run setup
 # or after global install:
-anyclaude-setup
+claude_route-setup
 ```
 
 ### Option 2: Manual Configuration
@@ -19,9 +19,9 @@ export OPENAI_API_KEY="your-openai-key"
 export OPENAI_API_URL="https://api.openai.com/v1"
 export GOOGLE_API_KEY="your-google-key"
 export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
-export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 
-# Start anyclaude
+# Start claude_route
 bun run src/main.ts --model google/gemini-2.5-pro
 ```
 
@@ -33,7 +33,7 @@ Perfect for getting started quickly with one AI provider.
 ```
 🚀 Welcome to Anyclaude Setup!
 
-How would you like to set up anyclaude?
+How would you like to set up claude_route?
 ❯ 1. Quick setup (configure one provider)
   2. Full setup (configure multiple providers)
   3. Advanced setup (customize all settings)
@@ -43,7 +43,7 @@ Select your primary AI provider:
   2. OpenAI - OpenAI GPT models (GPT-4, GPT-3.5-turbo, etc.)
   3. XAI - XAI Grok models
   4. Azure OpenAI - Azure OpenAI Service
-  5. Anthropic - Anthropic Claude models (usually not needed with anyclaude)
+  5. Anthropic - Anthropic Claude models (usually not needed with claude_route)
 ```
 
 ### 2. Full Setup (Multiple Providers)
@@ -128,7 +128,7 @@ Azure OpenAI Endpoint (required): https://mycompany.openai.azure.com
 ### Anthropic
 ```bash
 🔧 Configuring Anthropic
-   Anthropic Claude models (usually not needed with anyclaude)
+   Anthropic Claude models (usually not needed with claude_route)
 
 Anthropic API Key: sk-ant-real-key...
 Use custom base URL? (default: https://api.anthropic.com) (y/N): n
@@ -137,7 +137,7 @@ Use custom base URL? (default: https://api.anthropic.com) (y/N): n
 
 ## Configuration File
 
-After setup, your configuration is saved to `~/.anyclaude/config.json`:
+After setup, your configuration is saved to `~/.claude_route/config.json`:
 
 ```json
 {
@@ -172,7 +172,7 @@ After setup, your configuration is saved to `~/.anyclaude/config.json`:
     }
   },
   "claude": {
-    "dummyApiKey": "sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678",
+    "dummyApiKey": "sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678",
     "note": "This is a fake key required for Claude Code compatibility - NEVER used for actual API calls"
   }
 }
@@ -180,27 +180,27 @@ After setup, your configuration is saved to `~/.anyclaude/config.json`:
 
 ## Usage Examples
 
-After configuration, use anyclaude with any configured provider:
+After configuration, use claude_route with any configured provider:
 
 ```bash
 # Use Google Gemini
-anyclaude start --model google/gemini-2.5-pro
+claude_route start --model google/gemini-2.5-pro
 
 # Use OpenAI GPT-4
-anyclaude start --model openai/gpt-4
+claude_route start --model openai/gpt-4
 
 # Use XAI Grok
-anyclaude start --model xai/grok-beta
+claude_route start --model xai/grok-beta
 
 # Use Azure OpenAI
-anyclaude start --model azure/gpt-4
+claude_route start --model azure/gpt-4
 ```
 
 ## Environment Variable Priority
 
 Configuration follows this priority order:
 1. **Environment variables** (highest priority)
-2. **Configuration file** (`~/.anyclaude/config.json`)
+2. **Configuration file** (`~/.claude_route/config.json`)
 3. **Default values** (lowest priority)
 
 This means you can override config file settings with environment variables:
@@ -208,7 +208,7 @@ This means you can override config file settings with environment variables:
 ```bash
 # Override config file with environment variable
 export GOOGLE_API_URL="https://different-endpoint.com/v1beta"
-anyclaude start --model google/gemini-2.5-pro
+claude_route start --model google/gemini-2.5-pro
 ```
 
 ## Configuration Management Commands
@@ -259,7 +259,7 @@ export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 ### Configuration Issues
 ```bash
 # Check if config exists
-ls ~/.anyclaude/config.json
+ls ~/.claude_route/config.json
 
 # Validate configuration
 bun run config:validate

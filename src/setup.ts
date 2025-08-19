@@ -67,7 +67,7 @@ export class AnyclaudeSetup {
       const config = await configManager.loadConfig();
       
       const setupType = await this.prompt.choice(
-        "How would you like to set up anyclaude?",
+        "How would you like to set up claude_route?",
         [
           "Quick setup (configure one provider)",
           "Full setup (configure multiple providers)",
@@ -98,7 +98,7 @@ export class AnyclaudeSetup {
         validation.errors.forEach(error => console.log(`  • ${error}`));
       }
 
-      console.log("\n🎉 Setup complete! You can now use anyclaude with:");
+      console.log("\n🎉 Setup complete! You can now use claude_route with:");
       const enabledProviders = Object.entries(config.providers)
         .filter(([, provider]) => provider.enabled)
         .map(([name]) => name);
@@ -107,7 +107,7 @@ export class AnyclaudeSetup {
         console.log("Examples:");
         enabledProviders.forEach(provider => {
           const example = this.getExampleCommand(provider);
-          console.log(`  anyclaude start --model ${example}`);
+          console.log(`  claude_route start --model ${example}`);
         });
       }
       

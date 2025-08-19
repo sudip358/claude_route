@@ -193,7 +193,7 @@ if (providerConfigs.anthropic?.apiKey) {
   ]
     .filter(Boolean)
     .join(" ");
-  console.log(`[anyclaude] ${params}`);
+  console.log(`[claude_route] ${params}`);
 
   if (process.env.PROXY_ONLY === "true") {
     console.log("Proxy only mode: " + proxyURL);
@@ -209,7 +209,7 @@ if (providerConfigs.anthropic?.apiKey) {
     });
     proc.on("exit", (code) => {
       if (helpRequested) {
-        console.log("\nanyclaude flags:");
+        console.log("\nclaude_route flags:");
         console.log("  --model <provider>/<model>      e.g. openai/gpt-5");
         for (const spec of Object.values(FLAGS)) {
           const vals = spec.values.join("|");

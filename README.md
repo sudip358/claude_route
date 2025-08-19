@@ -1,6 +1,6 @@
-# anyclaude
+# claude_route
 
-[![NPM Version](https://img.shields.io/npm/v/anyclaude)](https://www.npmjs.com/package/anyclaude)
+[![NPM Version](https://img.shields.io/npm/v/claude_route)](https://www.npmjs.com/package/claude_route)
 
 Use Claude Code with OpenAI, Google, xAI, Azure, and other providers with advanced configuration management.
 
@@ -18,17 +18,17 @@ Use Claude Code with OpenAI, Google, xAI, Azure, and other providers with advanc
 ### Installation
 ```sh
 # Use your favorite package manager
-$ pnpm install -g anyclaude
+$ pnpm install -g claude_route
 # or
-$ npm install -g anyclaude
+$ npm install -g claude_route
 # or  
-$ bun install -g anyclaude
+$ bun install -g claude_route
 ```
 
 ### Interactive Setup (Recommended)
 ```sh
 # Run the interactive setup wizard
-$ anyclaude-setup
+$ claude_route-setup
 # or during development
 $ bun run setup
 ```
@@ -42,18 +42,18 @@ The setup wizard offers three options:
 ```sh
 # Set your API keys and start
 $ export OPENAI_API_KEY="your-openai-key"
-$ export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
-$ anyclaude --model openai/gpt-5-mini
+$ export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+$ claude_route --model openai/gpt-5-mini
 ```
 
 ### Basic Usage
 ```sh
-# anyclaude is a wrapper for the Claude CLI
+# claude_route is a wrapper for the Claude CLI
 # Supported prefixes: openai/, google/, xai/, azure/, anthropic/
-$ anyclaude --model openai/gpt-5-mini
-$ anyclaude --model google/gemini-2.5-pro  
-$ anyclaude --model xai/grok-beta
-$ anyclaude --model azure/gpt-4
+$ claude_route --model openai/gpt-5-mini
+$ claude_route --model google/gemini-2.5-pro  
+$ claude_route --model xai/grok-beta
+$ claude_route --model azure/gpt-4
 ```
 
 Switch models in the Claude UI with `/model openai/gpt-5-mini`.
@@ -63,13 +63,13 @@ Switch models in the Claude UI with `/model openai/gpt-5-mini`.
 ### Priority System
 Configuration follows this priority order:
 1. **Environment variables** (highest priority)
-2. **Configuration file** (`~/.anyclaude/config.json`)  
+2. **Configuration file** (`~/.claude_route/config.json`)  
 3. **Default values** (lowest priority)
 
 ### Interactive Setup Commands
 ```sh
 # Run interactive setup wizard
-$ anyclaude-setup
+$ claude_route-setup
 $ bun run setup
 
 # Show current configuration
@@ -83,7 +83,7 @@ $ PROXY_ONLY=true bun run src/main.ts --model google/gemini-2.5-pro
 ```
 
 ### Configuration File
-After running setup, your configuration is saved to `~/.anyclaude/config.json`:
+After running setup, your configuration is saved to `~/.claude_route/config.json`:
 
 ```json
 {
@@ -118,7 +118,7 @@ After running setup, your configuration is saved to `~/.anyclaude/config.json`:
     }
   },
   "claude": {
-    "dummyApiKey": "sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678",
+    "dummyApiKey": "sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678",
     "note": "This is a fake key required for Claude Code compatibility - NEVER used for actual API calls"
   }
 }
@@ -155,7 +155,7 @@ export AZURE_OPENAI_API_KEY="your-azure-key"
 export AZURE_OPENAI_ENDPOINT="https://your-resource.openai.azure.com"
 
 # Required dummy key for Claude Code compatibility
-export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 ```
 
 ### Windows PowerShell Setup
@@ -163,10 +163,10 @@ export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901
 # OpenAI setup
 $env:OPENAI_API_KEY="sk-proj-your-key"
 $env:OPENAI_API_URL="https://api.openai.com/v1"
-$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+$env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_claude_route_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 
-# Start anyclaude
-anyclaude --model openai/gpt-4
+# Start claude_route
+claude_route --model openai/gpt-4
 ```
 
 ## Custom Base URLs
@@ -177,21 +177,21 @@ All providers support custom base URLs for corporate proxies, regional endpoints
 ```bash
 # Route OpenAI through corporate proxy
 export OPENAI_API_URL="https://proxy.company.com/openai/v1"
-anyclaude --model openai/gpt-4
+claude_route --model openai/gpt-4
 ```
 
 ### Custom Google Vertex AI Endpoint
 ```bash
 # Use custom Vertex AI endpoint (like custom-vertex-ai.example.com)
 export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
-anyclaude --model google/gemini-2.5-pro
+claude_route --model google/gemini-2.5-pro
 ```
 
 ### Azure Regional Endpoint
 ```bash
 # Use specific Azure region
 export AZURE_OPENAI_ENDPOINT="https://mycompany-eastus.openai.azure.com"
-anyclaude --model azure/gpt-4
+claude_route --model azure/gpt-4
 ```
 
 ## GPT-5 Advanced Features
@@ -201,8 +201,8 @@ Use `--reasoning-effort` (alias: `-e`) to control OpenAI reasoning effort:
 
 ```sh
 # Available values: minimal, low, medium, high
-anyclaude --model openai/gpt-5-mini -e high
-anyclaude --model openai/gpt-5-pro --reasoning-effort medium
+claude_route --model openai/gpt-5-mini -e high
+claude_route --model openai/gpt-5-pro --reasoning-effort medium
 ```
 
 ### Service Tier Control
@@ -210,8 +210,8 @@ Use `--service-tier` (alias: `-t`) to control OpenAI service tier:
 
 ```sh
 # Available values: flex, priority
-anyclaude --model openai/gpt-5-mini -t priority
-anyclaude --model openai/gpt-5-pro --service-tier flex
+claude_route --model openai/gpt-5-mini -t priority
+claude_route --model openai/gpt-5-pro --service-tier flex
 ```
 
 ## Usage Examples
@@ -219,25 +219,25 @@ anyclaude --model openai/gpt-5-pro --service-tier flex
 ### Switch Between Providers
 ```bash
 # Use Google Gemini
-anyclaude --model google/gemini-2.5-pro
+claude_route --model google/gemini-2.5-pro
 
 # Use OpenAI GPT-4 with high reasoning
-anyclaude --model openai/gpt-4 -e high
+claude_route --model openai/gpt-4 -e high
 
 # Use XAI Grok
-anyclaude --model xai/grok-beta
+claude_route --model xai/grok-beta
 
 # Use Azure OpenAI with priority tier
-anyclaude --model azure/gpt-4 -t priority
+claude_route --model azure/gpt-4 -t priority
 
 # Override config with environment variable
-GOOGLE_API_URL="https://different-endpoint.com/v1beta" anyclaude --model google/gemini-2.5-pro
+GOOGLE_API_URL="https://different-endpoint.com/v1beta" claude_route --model google/gemini-2.5-pro
 ```
 
 ### Development Testing
 ```bash
 # Test proxy without launching Claude Code
-PROXY_ONLY=true anyclaude --model openai/gpt-4
+PROXY_ONLY=true claude_route --model openai/gpt-4
 
 # Test specific provider configuration
 PROXY_ONLY=true bun run src/main.ts --model google/gemini-2.5-pro
@@ -269,7 +269,7 @@ export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 ### Corporate Network
 ```bash
 # Setup for corporate proxy
-anyclaude-setup
+claude_route-setup
 # Select "Advanced setup" → Configure custom URLs
 # Enter: https://proxy.company.com/openai/v1
 ```
@@ -277,9 +277,9 @@ anyclaude-setup
 ### Multiple Provider Testing
 ```bash
 # Quick comparison between providers
-anyclaude --model openai/gpt-4      # Test with OpenAI
-anyclaude --model google/gemini-2.5-pro   # Test with Google
-anyclaude --model xai/grok-beta     # Test with XAI
+claude_route --model openai/gpt-4      # Test with OpenAI
+claude_route --model google/gemini-2.5-pro   # Test with Google
+claude_route --model xai/grok-beta     # Test with XAI
 ```
 
 ## Troubleshooting
@@ -287,7 +287,7 @@ anyclaude --model xai/grok-beta     # Test with XAI
 ### Configuration Issues
 ```bash
 # Check if config exists
-ls ~/.anyclaude/config.json
+ls ~/.claude_route/config.json
 
 # Validate configuration
 bun run config:validate
@@ -299,7 +299,7 @@ bun run config:show
 ### Provider Issues
 ```bash
 # Test specific provider in proxy-only mode
-PROXY_ONLY=true anyclaude --model openai/gpt-4
+PROXY_ONLY=true claude_route --model openai/gpt-4
 
 # Check environment variables
 echo $OPENAI_API_KEY
@@ -309,7 +309,7 @@ echo $OPENAI_API_URL
 ### Common Errors
 
 **"No API key configured"**
-- Run `anyclaude-setup` to configure providers
+- Run `claude_route-setup` to configure providers
 - Or set environment variables manually
 
 **"Invalid endpoint"**
@@ -338,11 +338,11 @@ See [the providers implementation](./src/main.ts#L17) for details.
 
 Claude Code has added support for customizing the Anthropic endpoint with `ANTHROPIC_BASE_URL`.
 
-anyclaude spawns a simple HTTP server that translates between Anthropic's format and the [AI SDK](https://github.com/vercel/ai) format, enabling support for any [AI SDK](https://github.com/vercel/ai) provider.
+claude_route spawns a simple HTTP server that translates between Anthropic's format and the [AI SDK](https://github.com/vercel/ai) format, enabling support for any [AI SDK](https://github.com/vercel/ai) provider.
 
 ### Why do I need a dummy Anthropic API key?
 
-Claude Code requires an Anthropic API key for compatibility, but anyclaude routes calls to other providers based on model prefixes. The dummy key is never used for actual API calls.
+Claude Code requires an Anthropic API key for compatibility, but claude_route routes calls to other providers based on model prefixes. The dummy key is never used for actual API calls.
 
 ### Can I use custom endpoints?
 
