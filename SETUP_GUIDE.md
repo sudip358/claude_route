@@ -18,7 +18,7 @@ anyclaude-setup
 export OPENAI_API_KEY="your-openai-key"
 export OPENAI_API_URL="https://api.openai.com/v1"
 export GOOGLE_API_KEY="your-google-key"
-export GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 export ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 
 # Start anyclaude
@@ -58,7 +58,7 @@ Configure Google? (y/N): y
 
 Google API Key: [your-key]
 Use custom base URL? (default: https://generativelanguage.googleapis.com/v1beta) (y/N): y
-Custom base URL: https://vertex.claude.gg/v1beta
+Custom base URL: https://vertex.custom-vertex-ai.example.com/v1beta
 ✅ Google configured
 
 Configure OpenAI? (y/N): y
@@ -90,7 +90,7 @@ Customize dummy Anthropic API key? (y/N): n
 
 Google API Key: sk-5da5d32f158c42538345bedf7ba1b76b
 Use custom base URL? (default: https://generativelanguage.googleapis.com/v1beta) (y/N): y
-Custom base URL (default: https://generativelanguage.googleapis.com/v1beta): https://vertex.claude.gg/v1beta
+Custom base URL (default: https://generativelanguage.googleapis.com/v1beta): https://vertex.custom-vertex-ai.example.com/v1beta
 ✅ Google configured
 ```
 
@@ -152,7 +152,7 @@ After setup, your configuration is saved to `~/.anyclaude/config.json`:
       "apiKey": "sk-proj-abcd1234..."
     },
     "google": {
-      "baseURL": "https://vertex.claude.gg/v1beta",
+      "baseURL": "https://vertex.custom-vertex-ai.example.com/v1beta",
       "enabled": true,
       "apiKey": "sk-5da5d32f158c42538345bedf7ba1b76b"
     },
@@ -251,7 +251,7 @@ Azure OpenAI Endpoint: https://mycompany-eastus.openai.azure.com
 export GOOGLE_API_URL="https://dev.vertex.api.com/v1beta"
 
 # Production environment  
-export GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 ```
 
 ## Troubleshooting

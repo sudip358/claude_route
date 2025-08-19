@@ -182,8 +182,8 @@ anyclaude --model openai/gpt-4
 
 ### Custom Google Vertex AI Endpoint
 ```bash
-# Use custom Vertex AI endpoint (like claude.gg)
-export GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+# Use custom Vertex AI endpoint (like custom-vertex-ai.example.com)
+export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 anyclaude --model google/gemini-2.5-pro
 ```
 
@@ -263,7 +263,7 @@ Anyclaude automatically routes requests based on model prefixes:
 export GOOGLE_API_URL="https://dev.vertex.api.com/v1beta"
 
 # Production environment
-export GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 ```
 
 ### Corporate Network

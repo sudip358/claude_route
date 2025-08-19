@@ -10,7 +10,7 @@
       "apiKey": "test-openai-key"
     },
     "google": {
-      "baseURL": "https://vertex.claude.gg/v1beta",
+      "baseURL": "https://vertex.custom-vertex-ai.example.com/v1beta",
       "enabled": true,
       "apiKey": "test-google-key"
     },

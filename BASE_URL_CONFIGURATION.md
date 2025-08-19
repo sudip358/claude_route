@@ -49,8 +49,8 @@ anyclaude start --model openai/gpt-4
 
 ### Custom Google Vertex AI Endpoint
 ```bash
-# Use custom Vertex AI endpoint (like claude.gg)
-export GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+# Use custom Vertex AI endpoint (like custom-vertex-ai.example.com)
+export GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 anyclaude start --model google/gemini-2.5-pro
 ```
 
@@ -79,7 +79,7 @@ bun run src/main.ts --model openai/gpt-4
 
 # Google with Vertex AI proxy
 $env:GOOGLE_API_KEY="your-key"
-$env:GOOGLE_API_URL="https://vertex.claude.gg/v1beta"
+$env:GOOGLE_API_URL="https://vertex.custom-vertex-ai.example.com/v1beta"
 $env:ANTHROPIC_API_KEY="sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
 bun run src/main.ts --model google/gemini-2.5-pro
 ```
