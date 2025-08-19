@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "defaultProvider": "google",
+  "defaultModel": "google/gemini-2.5-pro",
+  "proxyPort": 60618,
+  "providers": {
+    "openai": {
+      "baseURL": "https://api.custom-openai.com/v1",
+      "enabled": true,
+      "apiKey": "test-openai-key"
+    },
+    "google": {
+      "baseURL": "https://vertex.claude.gg/v1beta",
+      "enabled": true,
+      "apiKey": "test-google-key"
+    },
+    "xai": {
+      "baseURL": "https://api.custom-xai.com/v1",
+      "enabled": true,
+      "apiKey": "test-xai-key"
+    },
+    "azure": {
+      "baseURL": "https://mycompany.openai.azure.com",
+      "enabled": true,
+      "apiKey": "test-azure-key"
+    },
+    "anthropic": {
+      "baseURL": "https://api.anthropic.com",
+      "enabled": false
+    }
+  },
+  "claude": {
+    "dummyApiKey": "sk-ant-api03-dummy_key_for_anyclaude_proxy_12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678",
+    "note": "This is a fake key required for Claude Code compatibility - NEVER used for actual API calls"
+  }
+}
